@@ -31,22 +31,27 @@ game = [rock, paper, scissors]
 
 # rock, paper, scissors 중에 하나 입력받기
 user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
-print(game[user_choice])
-# rock, paper, scissors 중 하나 랜덤하게 출력
-com_choice = int(random.random()*len(game))
-print(game[com_choice])
-# 같으면(index - index) 무승부
-if user_choice == com_choice:
-  print("draw")
-# 다르다면 
+# user_choice가 0이상 2이하인 경우에만 가위바위보 실행
+if 0<= user_choice <=2:
+    print(game[user_choice])
+    # rock, paper, scissors 중 하나 랜덤하게 출력
+    com_choice = int(random.random()*len(game))
+    print(game[com_choice])
+    # 같으면(index - index) 무승부
+    if user_choice == com_choice:
+        print("draw")
+    # 다르다면 
+    else:
+        # 승리 경우의 수: user - com = -2, 1, 1
+        if user_choice - com_choice == -2 or user_choice - com_choice == 1:
+            print("You win")
+        # 패배의 경우의 수: -1, -1, 2
+        else:
+            print("You lose")
+# user_choice가 0미만 2초과인 경우에는 가위바위보를 하지 않는다.
 else:
-  # 승리 경우의 수: user - com = -2, 1, 1
-  if user_choice - com_choice == -2 or user_choice - com_choice == 1:
-    print("You win")
-  # 패배의 경우의 수: -1, -1, 2
-  else:
-    print("You lose")
-
+    print("You've entered wrong number")
+    
 # 1. 입력이 rock(0)이면
 #   1.1 paper(1)이면 패배
 #   1.2 scissors(2) 승리
