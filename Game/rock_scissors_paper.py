@@ -42,7 +42,7 @@ if user_choice == com_choice:
 else:
   # 승리 경우의 수: user - com = -2, 1, 1
   if user_choice - com_choice == -2 or user_choice - com_choice == 1:
-    print("You won")
+    print("You win")
   # 패배의 경우의 수: -1, -1, 2
   else:
     print("You lose")
